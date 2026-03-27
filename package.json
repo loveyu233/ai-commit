@@ -3,7 +3,7 @@
   "displayName": "AI Commit",
   "description": "读取 Git 变更并调用 OpenAI 兼容接口生成高质量 commit message。",
   "version": "0.0.1",
-  "publisher": "huangzhenyu",
+  "publisher": "loveyu",
   "license": "MIT",
   "repository": {
     "type": "git",
