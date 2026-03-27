@@ -1,16 +1,40 @@
 {
   "name": "ai-commit",
   "displayName": "AI Commit",
-  "description": "使用 git diff 调用 AI 自动生成提交信息。",
+  "description": "读取 Git 变更并调用 OpenAI 兼容接口生成高质量 commit message。",
   "version": "0.0.1",
   "publisher": "huangzhenyu",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loveyu233/ai-commit.git"
+  },
+  "homepage": "https://github.com/loveyu233/ai-commit#readme",
+  "bugs": {
+    "url": "https://github.com/loveyu233/ai-commit/issues"
+  },
+  "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.90.0"
   },
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "openai",
+    "source-control",
+    "conventional-commits"
+  ],
   "categories": [
     "Other",
     "Source Control"
+  ],
+  "galleryBanner": {
+    "color": "#0B1220",
+    "theme": "dark"
+  },
+  "extensionKind": [
+    "workspace"
   ],
   "activationEvents": [
     "onCommand:aiCommit.generateCommitMessage"
@@ -90,12 +114,16 @@
     }
   },
   "scripts": {
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package --allow-missing-repository",
+    "package:dry-run": "vsce package --no-yarn --allow-missing-repository"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",
     "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.6.0",
     "typescript": "^5.8.3"
   }
 }

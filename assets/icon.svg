@@ -1,0 +1,21 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#11203B"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#D1FAE5"/>
+    </linearGradient>
+  </defs>
+  <rect x="72" y="72" width="880" height="880" rx="220" fill="url(#bg)"/>
+  <path d="M318 258c-55.2 0-100 44.8-100 100v308c0 55.2 44.8 100 100 100h388c55.2 0 100-44.8 100-100V494L598 258H318z" fill="url(#chip)"/>
+  <path d="M598 258v160c0 42 34 76 76 76h132" fill="#A7F3D0"/>
+  <circle cx="370" cy="470" r="44" fill="#0F766E"/>
+  <circle cx="370" cy="630" r="44" fill="#0F766E"/>
+  <rect x="424" y="450" width="216" height="40" rx="20" fill="#1E293B"/>
+  <rect x="424" y="610" width="184" height="40" rx="20" fill="#1E293B"/>
+  <path d="M230 806c46-14 86-14 120 0 25 10 51 15 79 15 53 0 100-18 141-54 36-31 75-47 117-47 33 0 63 9 92 28 29 19 58 28 90 28 19 0 41-4 67-12-24 61-65 109-123 144-59 35-122 52-190 52-72 0-138-19-197-56-59-38-105-87-136-148 8 0 21-1 40-4z" fill="#F59E0B"/>
+  <path d="M330 818c25-7 50-10 75-10 51 0 95 15 132 46l-46 56c-25-20-54-30-88-30-16 0-32 2-49 6l-24-68z" fill="#F97316"/>
+</svg>
