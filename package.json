@@ -1,0 +1,101 @@
+{
+  "name": "ai-commit",
+  "displayName": "AI Commit",
+  "description": "使用 git diff 调用 AI 自动生成提交信息。",
+  "version": "0.0.1",
+  "publisher": "huangzhenyu",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Source Control"
+  ],
+  "activationEvents": [
+    "onCommand:aiCommit.generateCommitMessage"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiCommit.generateCommitMessage",
+        "title": "AI Commit: 生成提交信息",
+        "icon": "$(sparkle)"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "aiCommit.generateCommitMessage"
+        }
+      ],
+      "scm/title": [
+        {
+          "command": "aiCommit.generateCommitMessage",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AI Commit",
+      "properties": {
+        "aiCommit.baseUrl": {
+          "type": "string",
+          "default": "https://api.openai.com/v1",
+          "description": "OpenAI 兼容接口的基础地址。"
+        },
+        "aiCommit.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI 兼容接口的 API Key。"
+        },
+        "aiCommit.modelId": {
+          "type": "string",
+          "default": "gpt-4o-mini",
+          "description": "用于生成 commit message 的模型名。"
+        },
+        "aiCommit.language": {
+          "type": "string",
+          "default": "zh-CN",
+          "enum": [
+            "zh-CN",
+            "en"
+          ],
+          "description": "提交信息输出语言。"
+        },
+        "aiCommit.maxDiffChars": {
+          "type": "number",
+          "default": 12000,
+          "minimum": 2000,
+          "description": "发送给 AI 的 diff 最大字符数，超出会被截断。"
+        },
+        "aiCommit.stageAllBeforeDiff": {
+          "type": "boolean",
+          "default": true,
+          "description": "生成 diff 前是否先执行 git add .，默认开启，适合包含未跟踪文件的场景。"
+        },
+        "aiCommit.timeoutMs": {
+          "type": "number",
+          "default": 30000,
+          "minimum": 5000,
+          "description": "调用 AI 接口的超时时间，单位毫秒。"
+        },
+        "aiCommit.messageStyle": {
+          "type": "string",
+          "default": "请输出一条简洁、准确、可直接提交的 Conventional Commits 风格 commit message，只返回提交信息本身，不要解释，不要代码块，以一个符合这次提交的git小表情为开头。",
+          "description": "自定义 AI 返回的 commit message 风格指令。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.8.3"
+  }
+}
